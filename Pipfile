@@ -8,6 +8,7 @@ sqlalchemy = "*"
 alembic = "*"
 asyncpg = "*"
 psycopg2 = "*"
+asyncpgsa = "*"
 
 [dev-packages]
 

@@ -14,6 +14,7 @@ roles_assoc_table = Table(
 
 class User(Base):
     __tablename__ = 'users'
+    __jsonexport__ = ['id', 'name', 'created_at'],
     id = Column(Integer, primary_key=True)
     name = Column(String)
     created_at = Column(DateTime, default=func.now())

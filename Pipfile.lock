@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "282c165c6d33a73e2874abbf9d2cac0434c6a6dea6eb11f60da29dbd6a449ac6"
+            "sha256": "5f86c23abf3f5307e7d78b0b82553d675feb4d25273343bd94ec91f20c555bb7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -42,6 +42,13 @@
             ],
             "index": "pypi",
             "version": "==0.24.0"
+        },
+        "asyncpgsa": {
+            "hashes": [
+                "sha256:32e9ad376caf969d606800a977f044dda2ed946eb10f3c87dac2690ae897f6aa"
+            ],
+            "index": "pypi",
+            "version": "==0.27.1"
         },
         "greenlet": {
             "hashes": [
