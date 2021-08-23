@@ -2,20 +2,30 @@ from aiohttp import web
 from . import routes
 from sqlalchemy import engine
 from asyncpgsa import pg
+# from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.ext.asyncio import create_async_engine
-
 
 class Server:
 
     def __init__(self):
         self.app = web.Application()
+        print(routes)
         self.app.add_routes(routes)
 
-        # self.app.on_startup.append(self.init_pg)
+        self.app.on_startup.append(self.init_pg)
+        self.app.on_shutdown.append(self.close_pg)
 
     @staticmethod
-    async def init_pg(self):
-        pass
+    async def close_pg(app):
+        app["db"].close()
+
+    @staticmethod
+    async def init_pg(app):
+        db = create_async_engine(
+            "postgresql+asyncpg://postgres:U5w6yZvpBNAjcSLZZx2jb5nfuySa6ZQF@92.63.110.64/alchemy",
+            echo=True,
+        )
+        app["db"] = db
 
         # await pg.init(
         #     host='92.63.110.64',

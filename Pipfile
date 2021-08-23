@@ -9,6 +9,8 @@ alembic = "*"
 asyncpg = "*"
 psycopg2 = "*"
 asyncpgsa = "*"
+marshmallow-sqlalchemy = "*"
+aiohttp = "*"
 
 [dev-packages]
 
