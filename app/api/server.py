@@ -12,8 +12,8 @@ class Server:
         print(routes)
         self.app.add_routes(routes)
 
-        self.app.on_startup.append(self.init_pg)
-        self.app.on_shutdown.append(self.close_pg)
+        # self.app.on_startup.append(self.init_pg)
+        self.app.cleanup_ctx.append(Server.init_pg)
 
     @staticmethod
     async def close_pg(app):
@@ -26,6 +26,10 @@ class Server:
             echo=True,
         )
         app["db"] = db
+        yield
+        db.close()
+        await db.wait_closed()
+        print("waited")
 
         # await pg.init(
         #     host='92.63.110.64',

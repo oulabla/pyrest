@@ -19,4 +19,4 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     created_at = Column(DateTime, default=func.now())
-    roles = relationship("Role", secondary=roles_assoc_table)
+    roles = relationship("Role", lazy='noload', secondary=roles_assoc_table)
